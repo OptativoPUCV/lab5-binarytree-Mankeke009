@@ -47,7 +47,7 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
-
+  
 }
 
 TreeNode * minimum(TreeNode * x){
@@ -73,7 +73,20 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 
 Pair * searchTreeMap(TreeMap * tree, void* key) {
-    return NULL;
+  /*if (tree == NULL || tree->root == NULL) return NULL;  
+  TreeNode * aux = tree->root;
+  while(aux!=NULL){
+    if(is_equal(tree,key,aux->pair->key)){
+      tree->current = aux;
+      return aux->pair;
+    }
+    if(tree->lower_than(key,aux->pair->key)==1){
+      aux = aux->left;
+    }
+    
+  }*/
+  
+  return NULL;
 }
 
 
