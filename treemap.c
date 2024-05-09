@@ -46,40 +46,35 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 }
 
 
-void insertTreeMap(TreeMap *tree, void *key, void *value) {
-    if (tree == NULL || tree->root == NULL) return;
-    if (searchTreeMap(tree, key) != NULL) return;
-    
-    TreeNode *aux = tree->root;
-    TreeNode *parent = NULL;
-    
-    while (aux != NULL) {
-        parent = aux;
-        if (tree->lower_than(key, aux->pair->key)) {
-            aux = aux->left;
-        } else {
-            aux = aux->right;
-        }
+void insertTreeMap(TreeMap * tree, void* key, void * value) {
+  if (tree == NULL || tree->root == NULL) return;
+  if (searchTreeMap(tree, key) != NULL) return;
+  TreeNode * aux = tree->root;
+  TreeNode * parent = NULL;
+  while (aux != NULL){
+    parent = aux;
+    if (tree->lower_than(key, aux->pair->key) == 1){
+      aux = aux->left;
     }
-    
-    // Creamos un nuevo nodo
-    TreeNode *new_node = createTreeNode(key, value);
-    new_node->parent = parent; // Establecemos el padre del nuevo nodo
-    
-    if (parent == NULL) {
-        // El árbol está vacío
-        tree->root = new_node;
-    } else if (tree->lower_than(key, parent->pair->key)) {
-        parent->left = new_node;
-    } else {
-        parent->right = new_node;
+    else{
+      aux = aux->right;
     }
-    
-    // Actualizamos el puntero current
-    tree->current = new_node;
+  }
+  TreeNode * new = createTreeNode(key, value);
+  new->parent = parent;
+  if (parent == NULL){
+    tree->root = new;
+  }
+  else{
+    if (tree->lower_than(key, parent->pair->key) == 1){
+      parent->left = new;
+    }
+    else{
+      parent->right = new;
+    } 
+  }
+  tree->current = new;
 }
-
-
 TreeNode * minimum(TreeNode * x){
 
     return NULL;
