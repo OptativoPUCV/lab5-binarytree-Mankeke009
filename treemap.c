@@ -50,19 +50,13 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
   if (tree == NULL || tree->root == NULL) return;
   if (searchTreeMap(tree, key) != NULL) return;
   TreeNode * aux = tree->root;
-  TreeNode *parent = NULL;
+  TreeNode * parent = NULL;
   while (aux != NULL){
-    parent = aux;//el parent es el nodo que se esta revisando
+    parent = aux;
     if (tree->lower_than(key, aux->pair->key) == 1){
       aux = aux->left;
     }
-    else{
-      aux = aux->right;
-    }
-    
   }
-  
-  
 }
 
 TreeNode * minimum(TreeNode * x){
@@ -77,7 +71,6 @@ void removeNode(TreeMap * tree, TreeNode* node) {
 
 void eraseTreeMap(TreeMap * tree, void* key){
     if (tree == NULL || tree->root == NULL) return;
-
     if (searchTreeMap(tree, key) == NULL) return;
     TreeNode* node = tree->current;
     removeNode(tree, node);
