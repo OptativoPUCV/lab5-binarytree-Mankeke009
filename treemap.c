@@ -74,7 +74,11 @@ void insertTreeMap(TreeMap *tree, void *key, void *value) {
     } else {
         parent->right = new_node;
     }
+    
+    // Actualizamos el puntero current
+    tree->current = new_node;
 }
+
 
 TreeNode * minimum(TreeNode * x){
 
