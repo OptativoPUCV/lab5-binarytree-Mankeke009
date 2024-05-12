@@ -177,17 +177,15 @@ Pair * upperBound(TreeMap * tree, void* key) {
   TreeNode * limite = NULL; 
   while(aux!=NULL){
     if(is_equal(tree,key,aux->pair->key)){
-      limite = aux;
+      tree->current = aux;
+      return aux->pair;
+    }
+    if(tree->lower_than(key,aux->pair->key)==1){
       aux = aux->left;
     }
     else{
-      if(tree->lower_than(key,aux->pair->key)==1){
-        aux = aux->left;
-      }
-      else{
-        limite = aux;
-        aux = aux->right;
-      }
+      limite = aux;
+      aux = aux->right;
     }
   }
   if(limite!=NULL){
