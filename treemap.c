@@ -177,8 +177,8 @@ Pair * upperBound(TreeMap * tree, void* key) {
   TreeNode * limite = NULL; 
   while(aux!=NULL){
     if(is_equal(tree,key,aux->pair->key)){
-      limite = aux;
-      aux = aux->right;
+      tree->current = aux;
+      return aux->pair;
     }
     else{
       if(tree->lower_than(key,aux->pair->key)==1){
