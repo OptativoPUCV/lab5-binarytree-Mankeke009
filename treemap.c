@@ -172,7 +172,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-  if (tree == NULL || tree->root == NULL) return NULL;
+  //if (tree == NULL || tree->root == NULL) return NULL;
   TreeNode * aux = tree->root;
   TreeNode * limite = NULL; 
   while(aux!=NULL){
@@ -188,7 +188,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
       aux = aux->left;
     }
   }
-  if(limite!=NULL){
+  if(limite != NULL){
     return limite->pair;
   }
   return NULL;
