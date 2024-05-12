@@ -182,10 +182,10 @@ Pair * upperBound(TreeMap * tree, void* key) {
     }
     if(tree->lower_than(key,aux->pair->key)){
       limite = aux;
-      aux = aux->right;
+      aux = aux->left;
     }
     else{
-      aux = aux->left;
+      aux = aux->right;
     }
   }
   if(limite != NULL){
