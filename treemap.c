@@ -189,7 +189,6 @@ Pair * upperBound(TreeMap * tree, void* key) {
     }
   }
   if(limite!=NULL){
-    tree->current = limite;
     return limite->pair;
   }
   return NULL;
